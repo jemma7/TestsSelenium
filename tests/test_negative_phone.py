@@ -9,22 +9,18 @@ import re
 
 @pytest.mark.usefixtures('set_up')
 class TestNegative(Base):
-    @pytest.mark.parametrize("text, result",[("45567789", True),("", False),("grfdytj", False)])
-    def test_phone(self, text, result):
+    @pytest.mark.parametrize("text",["45567789", "", "grfdytj"])
+    def test_phone(self, text):
         driver = self.driver
         self.text = text
-        self.result = result
-        print("RRRR")
-        print(driver)
         contact = Elements_contact_us(driver)
         contact.fill_in_phone(text)
         if text.isdigit():
-            print("valid phone number")
+            assert text.isdigit(), "Valid phone number"
         elif len(text)==0:
-            print("Field error")
-            driver.switch_to_alert
-            print("Alert found")
+            assert text.isdigit(), "Field error"
+            assert driver.switch_to_alert(), "Alert found"
         else:
-            print("invalid phone number")
+            assert text.isdigit(),"Invalid phone number"
 
         sleep(2)
