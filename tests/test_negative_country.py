@@ -9,18 +9,15 @@ import re
 
 @pytest.mark.usefixtures('set_up')
 class TestNegative(Base):
-    @pytest.mark.parametrize("text, result",[("Armenia", True),("        ", False),("44678", False)])
-    def test_cuntry(self, text, result):
+    @pytest.mark.parametrize("text",["Armenia", "     "])
+    def test_cuntry(self, text):
         driver = self.driver
         self.text = text
-        self.result = result
-        print("RRRR")
-        print(driver)
         contact = Elements_contact_us(driver)
         contact.fill_in_country(text)
         if text.isalpha():
-            print("Valid country name")
+            assert text.isalpha, "Valid country name"
         else:
-            print("Invalid country name")
+            assert text.isalpha,"Valid country name"
 
         sleep(2)
