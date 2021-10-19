@@ -20,4 +20,5 @@ class TestNegative(Base):
         else:
             assert text.isalpha,"Valid country name"
 
+
         sleep(2)
