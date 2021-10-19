@@ -23,4 +23,5 @@ class TestNegative(Base):
         else:
             assert text.isdigit(),"Invalid phone number"
 
+
         sleep(2)
