@@ -27,4 +27,5 @@ class TestNegative(Base):
         else:
             assert regex.match(email), "email is not valid"
 
+
         sleep(4)   
