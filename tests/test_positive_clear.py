@@ -17,7 +17,6 @@ class TestPositive(Base):
         contact.fill_in_message("Need your help")
         sleep(3)
         contact.clear()
-
         print("CLEARED")
 
         sleep(3)
