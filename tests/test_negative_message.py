@@ -15,4 +15,6 @@ class TestNegative(Base):
         contact.fill_in_message("Have got some problems, need your help")
         print("Message field contains less than 180 symbols")
 
+
+
         sleep(2)
